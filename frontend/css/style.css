@@ -1,0 +1,78 @@
+section {
+  height: 100vh;
+}
+
+.table {
+  --bs-table-bg: transparent;
+}
+.table__thead th {
+  position: relative;
+  color: #B0B0B0;
+  transition: background-color 1s ease;
+}
+
+.table__thead th:not(:last-child):hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #040404;
+
+  border-bottom-color: #fff!important;
+}
+
+
+.table__thead th:not(:last-child):before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  right: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../img/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.table__thead th:not(:last-child).sort::before {
+  transform: translateY(-50%);
+}
+
+.action {
+  text-align: center;
+}
+
+.action .btn {
+  --bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .5rem;
+  --bs-btn-font-size: .75rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    height: unset;
+  }
+
+  .table__thead {
+    display: none;
+  }
+
+  .table, .table .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-group-divider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .students-block {
+    width: 100%;
+  }
+
+  .action {
+    text-align: start;
+  }
+}
